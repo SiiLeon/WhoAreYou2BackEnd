@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Jugador</title>
+    <link rel="stylesheet" href="/stylesheets/app.css">
+
+    <script>
+            function error(msg){
+                document.getElementById('error').innerHTML += msg+' <br>';
+            }
+            function validateForm(){
+                document.getElementById('error').innerHTML="";
+                let valid=true;
+                let keys = ['username','password']
+                keys.forEach(key=>{
+                    if(document.getElementById('form')[key].value==""){
+                        error(key+' is required')
+                        valid=false;
+                    }
+                })
+                if(valid){
+                    document.getElementById('form').submit();
+                }
+            }
+
+            window.onload=function(){
+                document.getElementById("login").addEventListener('click',validateForm)
+            }
+    </script>
+</head>
+<body>
+
+<form id='form' action="/user" method="post">
+    <h2>Login</h2>
+    <div class="input-field">
+        <input type="text" name="username" id="username" placeholder="Enter Username">
+    </div>
+    <div class="input-field">
+        <input type="password" name="password" id="password" placeholder="Enter Password">
+    </div>
+    <input type="button" id='login' value="LogIn">
+    <br>
+    <div id="error" style="color: red" ></div>
+    <br>
+     <input type="text" id="er" value="<%=element%>" readonly style="color: red" class="sinborde">
+    <br>
+    <a style="text-align: center;color:black; text-decoration: none" href="/register">Registrate</a>
+
+</form>
+
+
+
+</body>
+</html>

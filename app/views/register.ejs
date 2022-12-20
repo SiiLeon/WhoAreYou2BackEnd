@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Añadir Jugador</title>
+    <link rel='stylesheet' href='/stylesheets/app.css' />
+    <script>
+
+            function error(msg){
+                document.getElementById('error').innerHTML += msg+' <br>';
+            }
+            function validateForm(){
+                document.getElementById('error').innerHTML="";
+                let valid=true;
+                let keys = ['username','name','surname','password','rpassword','email']
+                keys.forEach(key=>{
+                    if(document.getElementById('form')[key].value==""){
+                        error(key+' is required')
+                        valid=false;
+                    }
+                })
+                if(!document.getElementById('form')['email'].value.includes('@')){
+                            error('email con formato incorrecto')
+                            valid=false;
+                }
+
+                if(document.getElementById('form')['password'].value!=document.getElementById('form')['rpassword'].value){
+                        error('las contraseñas no coinciden')
+                        valid=false;
+                }
+                else if(document.getElementById('form')['password'].value.length<3){
+                                        error('tamaño mínimo de contraseña: 3')
+                                        valid=false;
+                }
+
+
+
+
+               if(valid){
+                    document.getElementById('form').submit();
+               }
+
+            }
+
+            window.onload=function(){
+                document.getElementById('register').addEventListener('click',validateForm)
+            }
+    </script>
+</head>
+<body>
+<form id="form" action="/register" method="post">
+    <h2>Register</h2>
+    <div class="input-field">
+        <input type="text" name="username" id="username" placeholder="Enter Username">
+    </div>
+    <div class="input-field">
+        <input type="text" name="name" id="name" placeholder="Enter your Name">
+    </div>
+    <div class="input-field">
+        <input type="text" name="surname" id="surname" placeholder="Enter your Surname">
+    </div>
+    <div class="input-field">
+        <input type="password" name="password" id="password" placeholder="Enter Password">
+    </div>
+    <div class="input-field">
+        <input type="password" name="rpassword" id="rpassword" placeholder="Repeate Password">
+    </div>
+    <div class="input-field">
+        <input type="email" name="email" id="email" placeholder="Enter your email">
+    </div>
+    <input type="button" id="register" value="Register">
+    <br>
+    <a style="text-align: center;color:black; text-decoration: none" href="/">Logeate</a>
+    <br>
+    <div id="error" style="color:red"></div>
+</form>
+</body>
+
+
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo Jugador</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script>
+
+            function error(msg){
+                document.getElementById('error').innerHTML += msg+' <br>';
+            }
+            function validateForm(){
+                document.getElementById('error').innerHTML="";
+                let valid=true;
+                let keys = ['id','name','birthdate','nationality','teamId','position','number','leagueId']
+                keys.forEach(key=>{
+                    if(document.getElementById('form')[key].value==""){
+                        error(key+' is required')
+                        valid=false;
+                    }
+                })
+
+
+
+                if(valid){
+                    document.getElementById('form').submit();
+                }
+            }
+
+            window.onload=function(){
+                document.getElementById('create').addEventListener('click',validateForm)
+            }
+    </script>
+</head>
+<body>
+
+<form action="./add" method="post" id='form' style="text-align: center">
+     <h1>Añadir Jugador</h1>
+    <p>
+        <label for="name">ID</label>
+        <input type="number" id="id" name="id" placeholder="Inserta el ID del jugador">
+    </p>
+    <p>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Inserta el Nombre">
+    </p>
+    <p>
+        <label for="name">Birthdate</label>
+        <input type="date" id="date" name="birthdate" placeholder="Inserta la Fecha de Nacimiento">
+    </p>
+    <p>
+        <label for="name">Nationality</label>
+        <input type="text" id="nation" name="nationality" placeholder="Inserta la Nacionalidad">
+    </p>
+    <p>
+        <label for="name">Team ID</label>
+        <input type="number" id="tid" name="teamId" placeholder="Inserta la ID del Equipo">
+    </p>
+    <p>
+        <label for="name">Position</label>
+        <input type="text" id="pos" name="position" placeholder="Inserta la posicion">
+    </p>
+    <p>
+        <label for="name">Number</label>
+        <input type="number" id="num" name="number" placeholder="Inserta el Numero">
+    </p>
+    <p>
+        <label for="name">League ID</label>
+        <input type="number" id="lid" name="leagueId" placeholder="Inserta la Id de la Liga">
+    </p>
+        <input type="button" id='create' value="Create">
+    <br>
+    <div id="error" style="color:red"></div>
+
+</form>
+
+
+
+
+</body>
+</html>

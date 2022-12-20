@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Añadir Jugador</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+<script>
+
+            function error(msg){
+                document.getElementById('error').innerHTML += msg+' <br>';
+            }
+            function validateForm(){
+                document.getElementById('error').innerHTML="";
+                let valid=true;
+                let keys = ['id','name','birthdate','nationality','teamId','position','number','leagueId']
+                keys.forEach(key=>{
+                    if(document.getElementById('form')[key].value==""){
+                        error(key+' is required')
+                        valid=false;
+                    }
+                })
+
+                if(valid){
+                    fetch('/api/v1/players/edit', {
+                        method: 'put',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                        _id: document.getElementById("mongoCod").value,
+                        id: document.getElementById("id").value,
+                        name: document.getElementById("name").value,
+                        birthdate: document.getElementById("birthdate").value,
+                        nationality: document.getElementById("nationality").value,
+                        teamId: document.getElementById("teamId").value,
+                        position: document.getElementById("position").value,
+                        number: document.getElementById("number").value,
+                        leagueId: document.getElementById("leagueId").value
+            })
+        })
+
+                }
+            }
+
+            window.onload=function(){
+                document.getElementById('edit').addEventListener('click',validateForm)
+            }
+    </script>
+</head>
+<body>
+<form id='form' style="text-align: center">
+    <h1>Añadir Jugador</h1>
+    <div>
+        Id: <input type="number" name="id" id="id" value="<%=element.id%>">
+    </div>
+    <div>
+        Nombre: <input type="text" name="name" id="name" value="<%=element.name%>">
+    </div>
+    <div>
+        Fecha de Nacimiento: <input type="text" name="birthdate" id="birthdate" value="<%=element.birthdate%>">
+    </div>
+    <div>
+        Nacionalidad: <input type="text" name="nationality" id="nationality" value="<%=element.nationality%>">
+    </div>
+    <div>
+        Id de Equipo: <input type="number" name="teamId" id="teamId" value="<%=element.teamId%>">
+    </div>
+    <div>
+        Posicion: <input type="text" name="position" id="position" value="<%=element.position%>">
+    </div>
+    <div>
+        Numero: <input type="number" name="number" id="number" value="<%=element.number%>">
+    </div>
+    <div>
+        Id de Liga: <input type="number" name="leagueId" id="leagueId" value="<%=element.leagueId%>">
+    </div>
+    <div>
+        <input type="text" style="visibility:hidden" name="mongoCod" id="mongoCod" value="<%=element._id%>">
+     </div>
+    <br>
+    <input type="button" name="edit" id="edit" value="Modificar">
+    <br>
+    <div id="error" style="color:red"></div>
+</form>
+</body>
+
+</html>

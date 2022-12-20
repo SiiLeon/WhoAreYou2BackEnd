@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "639df3e6f6407629804831a6"
+  },
+  "id": 78,
+  "logo": "https://media-2.api-sports.io/football/leagues/78.png"
+},{
+  "_id": {
+    "$oid": "639df3e6f6407629804831a7"
+  },
+  "id": 140,
+  "logo": "https://media-1.api-sports.io/football/leagues/140.png"
+},{
+  "_id": {
+    "$oid": "639df3e6f6407629804831a8"
+  },
+  "id": 61,
+  "logo": "https://media-6.api-sports.io/football/leagues/61.png"
+},{
+  "_id": {
+    "$oid": "639df3e6f6407629804831a9"
+  },
+  "id": 39,
+  "logo": "https://media-6.api-sports.io/football/leagues/39.png"
+},{
+  "_id": {
+    "$oid": "639df3e6f6407629804831aa"
+  },
+  "id": 135,
+  "logo": "https://media-6.api-sports.io/football/leagues/135.png"
+}]

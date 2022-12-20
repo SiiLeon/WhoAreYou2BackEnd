@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lista de Jugadores</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <h1>Ver Jugador</h1>
+ <table class="table table-striped">
+     <thead class="thead-dark">
+     <tr>
+         <th>ID</th>
+         <th>Nombre</th>
+         <th>Fecha de Nacimiento</th>
+         <th>Nacionalidad</th>
+         <th>ID del Equipo</th>
+         <th>Posicion</th>
+         <th>Numero</th>
+         <th>ID de la Liga</th>
+     </tr>
+     </thead>
+         <tr>
+             <td> <%= element.id %></td>
+             <td> <%= element.name %></td>
+             <td> <%= element.birthdate %></td>
+             <td> <%= element.nationality %></td>
+             <td> <%= element.teamId %></td>
+             <td> <%= element.position %></td>
+             <td> <%= element.number %></td>
+             <td> <%= element.leagueId %></td>
+         </tr>
+ </table>
+</html>
